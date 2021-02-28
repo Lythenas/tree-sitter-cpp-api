@@ -19,7 +19,7 @@ jobs:
       - name: Setup VM
         run: ./.github/workflows/install_packages.sh
       - name: Setup CMake
-        run: ./scripts/setup_build.sh -DCMAKE_BUILD_TYPE=Coverage
+        run: ./scripts/setup.sh -DCMAKE_BUILD_TYPE=Coverage
       - name: Build
         run: ./scripts/build.sh
       - name: Test with Coverage
@@ -43,7 +43,7 @@ jobs:
       - name: Setup VM
         run: ./.github/workflows/install_packages.sh
       - name: Setup CMake
-        run: ./scripts/setup_build.sh -DCMAKE_BUILD_TYPE=Debug
+        run: ./scripts/setup.sh -DCMAKE_BUILD_TYPE=Debug
       - name: Build
         run: ./scripts/build.sh
       - name: Test
@@ -66,7 +66,7 @@ jobs:
       - name: Setup VM
         run: ./.github/workflows/install_packages.sh
       - name: Setup CMake
-        run: ./scripts/setup_build.sh -DCMAKE_BUILD_TYPE=Debug
+        run: ./scripts/setup.sh -DCMAKE_BUILD_TYPE=Debug
       - name: Build
         run: ./scripts/build.sh
       - name: Test
@@ -89,7 +89,7 @@ jobs:
       - name: Setup VM
         run: ./.github/workflows/install_packages.sh
       - name: Setup CMake
-        run: ./scripts/setup_build.sh -DCMAKE_BUILD_TYPE=Asan
+        run: ./scripts/setup.sh -DCMAKE_BUILD_TYPE=Asan
       - name: Build
         run: ./scripts/build.sh
       - name: Test
@@ -111,7 +111,7 @@ jobs:
       - name: Setup VM
         run: ./.github/workflows/install_packages.sh
       - name: Setup CMake
-        run: ./scripts/setup_build.sh -DCMAKE_BUILD_TYPE=Ubsan
+        run: ./scripts/setup.sh -DCMAKE_BUILD_TYPE=Ubsan
       - name: Build
         run: ./scripts/build.sh
       - name: Test
@@ -138,7 +138,7 @@ jobs:
           ./.github/workflows/install_packages.sh
           sudo apt-get install clang-tidy
       - name: Setup CMake
-        run: ./scripts/setup_build.sh
+        run: ./scripts/setup.sh
       - name: Lint
         run: ./scripts/lint.sh
 
@@ -163,7 +163,7 @@ jobs:
           ./.github/workflows/install_packages.sh
           sudo apt-get install clang-format-11
       - name: Setup CMake
-        run: ./scripts/setup_build.sh
+        run: ./scripts/setup.sh
       - name: Lint
         run: ./scripts/check_format.sh
 
