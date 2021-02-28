@@ -1,0 +1,33 @@
+name: Deploy Documentation
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: Deploy Docs
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Setup VM
+        run: |
+          ./.github/workflows/install_packages.sh
+          sudo apt-get install doxygen
+      - name: Setup CMake
+        run: ./scripts/setup_build.sh
+      - name: Build Documentation
+        run: ./scripts/docs.sh
+      - name: Deploy Docs to Github Pages
+        uses: s0/git-publish-subdir-action@v2.4.0
+        env:
+          REPO: self
+          BRANCH: gh-pages
+          FOLDER: build/docs/html
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
