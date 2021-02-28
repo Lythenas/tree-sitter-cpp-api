@@ -1,0 +1,20 @@
+---
+Language: Cpp
+BasedOnStyle: LLVM
+IndentWidth: 4
+ColumnLimit: 100
+
+# force pointers to the type
+DerivePointerAlignment: false
+PointerAlignment: Left
+
+# keep public/protected/private at same level as class/struct
+AccessModifierOffset: -4
+
+# Don't break up string literals
+BreakStringLiterals: false
+
+# don't align after open bracket (this would sometimes push the code a lot to the right)
+AlignAfterOpenBracket: AlwaysBreak
+...
+
