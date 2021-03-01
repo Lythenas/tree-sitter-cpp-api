@@ -20,7 +20,7 @@ jobs:
           ./.github/workflows/install_packages.sh
           sudo apt-get install doxygen
       - name: Setup CMake
-        run: ./scripts/setup_build.sh
+        run: ./scripts/setup.sh
       - name: Build Documentation
         run: ./scripts/docs.sh
       - name: Deploy Docs to Github Pages
