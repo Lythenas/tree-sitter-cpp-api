@@ -1,5 +1,7 @@
 # Tree-Sitter C++ Api
 
+[Documentation](https://lythenas.github.io/tree-sitter-cpp-api/)
+
 This library is a C++ wrapper for Tree-Sitters C api.
 
 The Api is analogous to the official Tree-Sitter api but all the resource
