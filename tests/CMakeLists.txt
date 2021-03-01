@@ -6,8 +6,8 @@ target_include_directories(${PROJECT_NAME}-tests PRIVATE ${tree-sitter_SOURCE_DI
 target_include_directories(${PROJECT_NAME}-tests PRIVATE ${MiniLua_SOURCE_DIR}/src)
 target_link_libraries(${PROJECT_NAME}-tests
         PRIVATE ${PROJECT_NAME}
-        PRIVATE Catch2::Catch2)
-        # PRIVATE TreeSitter)
+        PRIVATE Catch2::Catch2
+        PRIVATE TreeSitterLua)
 
 if(COVERAGE)
     setup_target_for_coverage(${PROJECT_NAME}-tests-coverage ${PROJECT_NAME}-tests coverage)

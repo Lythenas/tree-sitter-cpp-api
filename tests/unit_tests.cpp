@@ -8,6 +8,10 @@
 
 using namespace std::string_literals;
 
+extern "C" const TSLanguage* tree_sitter_lua();
+const ts::Language LUA_LANGUAGE{tree_sitter_lua()};
+
+
 std::string read_input_from_file2(std::string path) {
     std::ifstream ifs;
     ifs.exceptions(std::ifstream::failbit | std::ifstream::badbit);
@@ -53,7 +57,7 @@ TEST_CASE("Navigation", "[tree-sitter][.hide]") {
     };
 
     std::string source = "1 + 2";
-    ts::Parser parser;
+    ts::Parser parser(LUA_LANGUAGE);
     ts::Tree tree = parser.parse_string(source);
     ts::Node root_node = tree.root_node();
     assert(root_node.type() == "program"s);
@@ -88,7 +92,7 @@ TEST_CASE("Navigation", "[tree-sitter][.hide]") {
 }
 
 TEST_CASE("tree-sitter print", "[tree-sitter][.hide]") {
-    ts::Parser parser;
+    ts::Parser parser(LUA_LANGUAGE);
 
     std::string source = "print(1+5)";
     ts::Tree tree = parser.parse_string(source);
@@ -99,7 +103,7 @@ TEST_CASE("tree-sitter print", "[tree-sitter][.hide]") {
 }
 
 TEST_CASE("TestCase for program", "[tree-sitter][.hide]") {
-    ts::Parser parser;
+    ts::Parser parser(LUA_LANGUAGE);
 
     std::string source = read_input_from_file2("../luaprograms/FragmeentedFurniture.lua");
     ts::Tree tree = parser.parse_string(source);
@@ -263,12 +267,12 @@ TEST_CASE("ts::Language", "[tree-sitter]") {
     SECTION("can be copied") {
         static_assert(std::is_nothrow_copy_constructible_v<ts::Language>);
         static_assert(std::is_nothrow_copy_assignable_v<ts::Language>);
-        const ts::Language& lang = ts::LUA_LANGUAGE;
+        const ts::Language& lang = LUA_LANGUAGE;
         ts::Language lang_copy = lang; // NOLINT
     }
 
     SECTION("can query node types") {
-        const ts::Language& lang = ts::LUA_LANGUAGE;
+        const ts::Language& lang = LUA_LANGUAGE;
 
         CHECK(lang.node_type_count() > 0);
 
@@ -286,7 +290,7 @@ TEST_CASE("ts::Language", "[tree-sitter]") {
     }
 
     SECTION("can query fields") {
-        const ts::Language& lang = ts::LUA_LANGUAGE;
+        const ts::Language& lang = LUA_LANGUAGE;
 
         CHECK(lang.field_count() > 0);
 
@@ -298,11 +302,11 @@ TEST_CASE("ts::Language", "[tree-sitter]") {
 }
 
 TEST_CASE("language is compatible with tree-sitter", "[tree-sitter]") {
-    REQUIRE(ts::language_compatible(ts::LUA_LANGUAGE));
+    REQUIRE(ts::language_compatible(LUA_LANGUAGE));
 }
 
 TEST_CASE("language can list all fields", "[tree-sitter][.hide]") {
-    ts::Language lang = ts::LUA_LANGUAGE;
+    ts::Language lang = LUA_LANGUAGE;
 
     CAPTURE(lang.field_count());
 
@@ -315,7 +319,7 @@ TEST_CASE("language can list all fields", "[tree-sitter][.hide]") {
 }
 
 TEST_CASE("language can list all node types", "[tree-sitter][.hide]") {
-    ts::Language lang = ts::LUA_LANGUAGE;
+    ts::Language lang = LUA_LANGUAGE;
 
     CAPTURE(lang.node_type_count());
 
@@ -332,7 +336,7 @@ TEST_CASE("language can list all node types", "[tree-sitter][.hide]") {
 }
 
 TEST_CASE("tree can be copied", "[tree-sitter]") {
-    ts::Parser parser;
+    ts::Parser parser(LUA_LANGUAGE);
     const std::string source = "1 + 2";
     const std::string source2 = "3 + 5";
 
@@ -352,7 +356,7 @@ TEST_CASE("tree can be copied", "[tree-sitter]") {
 }
 
 TEST_CASE("trees can be edited", "[tree-sitter]") {
-    ts::Parser parser;
+    ts::Parser parser(LUA_LANGUAGE);
 
     SECTION("changing an integer literal") {
         std::string source = "1 + 2";
@@ -593,7 +597,7 @@ return a + b)#";
 }
 
 TEST_CASE("Tree-Sitter detects errors", "[tree-sitter][parse]") {
-    ts::Parser parser;
+    ts::Parser parser(LUA_LANGUAGE);
 
     SECTION("correct code does not have an error") {
         std::string source = "1 + 2";
@@ -618,7 +622,7 @@ TEST_CASE("ts::Query", "[tree-sitter]") {
     static_assert(std::is_nothrow_move_constructible_v<ts::Query>);
     static_assert(std::is_nothrow_move_assignable_v<ts::Query>);
 
-    ts::Parser parser;
+    ts::Parser parser(LUA_LANGUAGE);
     std::string source = "1 + 2";
     ts::Tree tree = parser.parse_string(source);
 
@@ -630,7 +634,7 @@ TEST_CASE("ts::Query", "[tree-sitter]") {
     INFO(tree.root_node());
 
     SECTION("can match and get captured nodes") {
-        ts::Query query{R"#((binary_operation (number) @one "+" (number) @two))#"};
+        ts::Query query{LUA_LANGUAGE, R"#((binary_operation (number) @one "+" (number) @two))#"};
         ts::QueryCursor cursor{tree};
         cursor.exec(query);
         ts::Match match = cursor.next_match().value();
@@ -645,7 +649,7 @@ TEST_CASE("ts::Query", "[tree-sitter]") {
     }
 
     SECTION("illegal queries throw exceptions") {
-        REQUIRE_THROWS_AS(ts::Query{R"#((@)#"}, ts::QueryException);
+        REQUIRE_THROWS_AS(ts::Query(LUA_LANGUAGE, R"#((@)#"), ts::QueryException);
     }
 }
 
@@ -656,7 +660,7 @@ TEST_CASE("ts::Cursor", "[tree-sitter]") {
     static_assert(std::is_nothrow_move_assignable_v<ts::Cursor>);
     static_assert(std::is_nothrow_swappable_v<ts::Cursor>);
 
-    ts::Parser parser;
+    ts::Parser parser(LUA_LANGUAGE);
 
     std::string source = "1 + 2";
     ts::Tree tree = parser.parse_string(source);
@@ -728,7 +732,7 @@ TEST_CASE("ts::Node", "[tree-sitter]") {
     // this makes moves redundant
     static_assert(std::is_trivially_copyable_v<ts::Node>);
 
-    ts::Parser parser;
+    ts::Parser parser(LUA_LANGUAGE);
 
     std::string source = "1 + 2";
     ts::Tree tree = parser.parse_string(source);
@@ -891,7 +895,7 @@ TEST_CASE("ts::Node", "[tree-sitter]") {
 
 TEST_CASE("tree-sitter parses lua programs", "[tree-sitter][parser]") {
     SECTION("Simple addition") {
-        ts::Parser parser;
+        ts::Parser parser(LUA_LANGUAGE);
 
         std::string source_code = "1 + 2";
         ts::Tree tree = parser.parse_string(source_code);
@@ -926,7 +930,7 @@ TEST_CASE("tree-sitter parses lua programs", "[tree-sitter][parser]") {
         CHECK(number_2_node.end_point() == ts::Point{.row = 0, .column = 5});
     }
     SECTION("If example") {
-        ts::Parser parser;
+        ts::Parser parser(LUA_LANGUAGE);
 
         std::string source_code = R"-(if true then
     print(1)

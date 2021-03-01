@@ -30,7 +30,8 @@ find_package(Plantuml)
 
 # dependencies
 find_package(TreeSitter)
-# find_package(TreeSitterLua)
+# grammar for testing
+find_package(TreeSitterLua)
 
 # library
 add_subdirectory(src)

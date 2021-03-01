@@ -7,3 +7,6 @@
 [submodule "extern/m.css"]
 	path = extern/m.css
 	url = ../../Lythenas/m.css.git
+[submodule "extern/tree-sitter-lua"]
+	path = extern/tree-sitter-lua
+	url = ../../CFU9/tree-sitter-lua.git

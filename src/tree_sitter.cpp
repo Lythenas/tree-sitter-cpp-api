@@ -619,11 +619,10 @@ std::vector<Node> Cursor::named_children() {
 }
 
 // class Parser
-Parser::Parser() : Parser(LUA_LANGUAGE) {}
 Parser::Parser(const Language& lang) : parser(ts_parser_new(), ts_parser_delete) {
     if (!ts_parser_set_language(this->parser.get(), lang.raw())) {
-        // only occurs when version of lua parser and tree-sitter library
-        // are incompatible
+        // only occurs when version of the language grammar and tree-sitter
+        // library are incompatible
         // see: ts_language_version, TREE_SITTER_LANGUAGE_VERSION,
         // TREE_SITTER_MIN_COMPATIBLE_LANGUAGE_VERSION
         throw ParserLanguageException();
@@ -652,11 +651,11 @@ Tree Parser::parse_string(const TSTree* old_tree, std::string source) const {
 Tree Parser::parse_string(std::string str) const { return parse_string(nullptr, std::move(str)); }
 
 // class Query
-static TSQuery* _make_query(std::string_view source) {
+static TSQuery* _make_query(const Language& language, std::string_view source) {
     std::uint32_t error_offset;
     TSQueryError error_type;
     TSQuery* query = ts_query_new(
-        LUA_LANGUAGE.raw(), source.data(), source.length(), &error_offset, &error_type);
+        language.raw(), source.data(), source.length(), &error_offset, &error_type);
 
     if (query == nullptr) {
         throw QueryException(error_type, error_offset);
@@ -665,7 +664,7 @@ static TSQuery* _make_query(std::string_view source) {
     return query;
 }
 
-Query::Query(std::string_view source) : query(_make_query(source), ts_query_delete) {}
+Query::Query(const Language& language, std::string_view source) : query(_make_query(language, source), ts_query_delete) {}
 
 void swap(Query& self, Query& other) noexcept { std::swap(self.query, other.query); }
 

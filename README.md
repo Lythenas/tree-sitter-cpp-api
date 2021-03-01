@@ -34,6 +34,13 @@ additional pieces of functionality that is not directly offered by Tree-Sitter:
   around and change the line/column number of later edits). Currently this is
   very limited (see the docs).
 
+## Usage
+
+```cpp
+extern "C" const TSLanguage* tree_sitter_lua();
+const ts::Language LUA_LANGUAGE{tree_sitter_lua()};
+```
+
 ## TODOs
 
 - [ ] Test Queries
