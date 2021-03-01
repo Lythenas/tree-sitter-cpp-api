@@ -654,8 +654,8 @@ Tree Parser::parse_string(std::string str) const { return parse_string(nullptr, 
 static TSQuery* _make_query(const Language& language, std::string_view source) {
     std::uint32_t error_offset;
     TSQueryError error_type;
-    TSQuery* query = ts_query_new(
-        language.raw(), source.data(), source.length(), &error_offset, &error_type);
+    TSQuery* query =
+        ts_query_new(language.raw(), source.data(), source.length(), &error_offset, &error_type);
 
     if (query == nullptr) {
         throw QueryException(error_type, error_offset);
@@ -664,7 +664,8 @@ static TSQuery* _make_query(const Language& language, std::string_view source) {
     return query;
 }
 
-Query::Query(const Language& language, std::string_view source) : query(_make_query(language, source), ts_query_delete) {}
+Query::Query(const Language& language, std::string_view source)
+    : query(_make_query(language, source), ts_query_delete) {}
 
 void swap(Query& self, Query& other) noexcept { std::swap(self.query, other.query); }
 

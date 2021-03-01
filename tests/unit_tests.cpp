@@ -11,7 +11,6 @@ using namespace std::string_literals;
 extern "C" const TSLanguage* tree_sitter_lua();
 const ts::Language LUA_LANGUAGE{tree_sitter_lua()};
 
-
 std::string read_input_from_file2(std::string path) {
     std::ifstream ifs;
     ifs.exceptions(std::ifstream::failbit | std::ifstream::badbit);

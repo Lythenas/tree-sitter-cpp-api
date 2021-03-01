@@ -1,0 +1,39 @@
+#!/bin/sh
+
+# This script does the following:
+# - check for non-ASCII filenames
+# - check for whitespace errors
+# - automatically reformat c/c++ files
+
+if git rev-parse --verify HEAD >/dev/null 2>&1
+then
+    against=HEAD
+else
+    # Initial commit: diff against an empty tree object
+    against=$(git hash-object -t tree /dev/null)
+fi
+
+# Redirect output to stderr.
+exec 1>&2
+
+# Cross platform projects tend to avoid non-ASCII filenames; prevent
+# them from being added to the repository. We exploit the fact that the
+# printable range starts at the space character and ends with tilde.
+#
+# Note that the use of brackets around a tr range is ok here, (it's
+# even required, for portability to Solaris 10's /usr/bin/tr), since
+# the square bracket bytes happen to fall in the designated range.
+if test $(git diff --cached --name-only --diff-filter=A -z $against |
+        LC_ALL=C tr -d '[ -~]\0' | wc -c) != 0; then
+    cat <<\EOF
+Error: Attempt to add a non-ASCII file name.
+EOF
+    exit 1
+fi
+
+# Reformat C/C++ files that are part of the commit
+for file in $(git diff --cached --name-only | grep -E '\.(c|h|cpp|hpp)$'); do
+    echo "Formatting $file"
+    clang-format --style=file -i "$file"
+    git add "$file"
+done

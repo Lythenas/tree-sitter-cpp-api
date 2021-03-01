@@ -12,7 +12,6 @@
 #include <utility>
 #include <vector>
 
-
 /**
  * @brief C++ wrapper for the C Tree-Sitter API.
  *
