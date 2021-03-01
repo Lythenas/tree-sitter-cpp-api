@@ -26,6 +26,7 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/")
 
 # documentation
 find_package(Doxygen)
+find_package(Plantuml)
 
 # dependencies
 find_package(TreeSitter)
@@ -53,6 +54,23 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     add_subdirectory(tests)
     # add_subdirectory(bench)
 
-    # TODO docs generation
+    # documentation
+    if(DOXYGEN_FOUND)
+        set(DOXYGEN_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/docs)
+        set(DOXYGEN_CLANG_ASSISTED_PARSING YES)
+        set(DOXYGEN_CLANG_DATABASE_PATH ${CMAKE_SOURCE_DIR})
+        set(DOXYGEN_UML_LOOK YES)
+        set(DOXYGEN_TEMPLATE_RELATIONS YES)
+        set(DOXYGEN_DOT_IMAGE_FORMAT svg)
+        set(DOXYGEN_EXTRACT_ALL YES)
+        set(DOXYGEN_EXTRACT_PRIVATE YES)
+        set(DOXYGEN_EXTRACT_STATIC YES)
+        set(DOXYGEN_PLANTUML_JAR_PATH ${PLANTUML_JAR_PATH})
+        set(DOXYGEN_EXAMPLE_PATH ${PROJECT_SOURCE_DIR}/tests/docs)
+
+        doxygen_add_docs(${PROJECT_NAME}-docs
+            ${CMAKE_CURRENT_SOURCE_DIR}
+            ${PROJECT_SOURCE_DIR}/include)
+    endif()
 endif()
 
