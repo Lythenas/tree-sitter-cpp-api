@@ -4,7 +4,7 @@
 #include <iostream>
 #include <type_traits>
 
-#include "ts/tree_sitter.hpp"
+#include "tree_sitter/tree_sitter.hpp"
 
 using namespace std::string_literals;
 
