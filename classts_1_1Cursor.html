@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ts::Cursor class | TreeSitterWrapper C++ Wrapper for Tree-Sitter</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="icon" href="favicon-dark.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://lythenas.github.io/tree-sitter-cpp-api/">TreeSitterWrapper</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">C++ Wrapper for Tree-Sitter</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li>
+              <a href="namespaces.html">Namespaces</a>
+              <ol>
+                <li><a href="namespacets.html">ts</a></li>
+              </ol>
+            </li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="https://lythenas.github.io/tree-sitter-cpp-api/">GitHub</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="namespacets.html">ts</a>::<wbr/></span>Cursor <span class="m-thin">class</span>
+        </h1>
+        <p>Allows efficient walking of a <a href="classts_1_1Tree.html" class="m-doc">Tree</a>.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#typeless-methods">Constructors, destructors, conversion operators</a></li>
+                <li><a href="#pub-methods">Public functions</a></li>
+                <li><a href="#friends">Friends</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<p>This is more efficient than using the methods on <a href="classts_1_1Node.html" class="m-doc">Node</a> because we don&#x27;t create a new <a href="classts_1_1Node.html" class="m-doc">Node</a> after every navigation step.</p><p>Features not included (because we currently don&#x27;t use them):</p><ul><li><code>ts_tree_cursor_goto_first_child_for_byte</code></li></ul>
+        <section id="typeless-methods">
+          <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
+          <dl class="m-doc">
+            <dt id="a20a06529f72f2dd8767a7d27b4af50f3">
+              <span class="m-doc-wrap-bumper"><a href="#a20a06529f72f2dd8767a7d27b4af50f3" class="m-doc-self">Cursor</a>(</span><span class="m-doc-wrap"><a href="classts_1_1Node.html" class="m-doc">Node</a>) <span class="m-label m-flat m-info">explicit</span>  <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd>Create a cursor starting at the given node.</dd>
+            <dt id="a5893926fe2fa0681d1d257f269d81333">
+              <span class="m-doc-wrap-bumper"><a href="#a5893926fe2fa0681d1d257f269d81333" class="m-doc-self">Cursor</a>(</span><span class="m-doc-wrap">const <a href="classts_1_1Tree.html" class="m-doc">Tree</a>&amp;) <span class="m-label m-flat m-info">explicit</span>  <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd>Create a cursor starting at the root node of the given tree.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper"><a href="#a9dd696ae1f08783a411bc13cbd8080d6" class="m-doc">Cursor</a>(</span><span class="m-doc-wrap">const <a href="classts_1_1Cursor.html" class="m-doc">Cursor</a>&amp;) <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper"><a href="#a3a30e102a1881da153fb194b08be2cc7" class="m-doc">Cursor</a>(</span><span class="m-doc-wrap"><a href="classts_1_1Cursor.html" class="m-doc">Cursor</a>&amp;&amp;) <span class="m-label m-flat m-info">defaulted</span></span>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section id="pub-methods">
+          <h2><a href="#pub-methods">Public functions</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a1d7f65110294708fec70bde30c7be98e" class="m-doc">operator=</a>(</span><span class="m-doc-wrap">const <a href="classts_1_1Cursor.html" class="m-doc">Cursor</a>&amp;) -&gt; <a href="classts_1_1Cursor.html" class="m-doc">Cursor</a>&amp; <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a403866910ec5c272d730d60e839e8819" class="m-doc">operator=</a>(</span><span class="m-doc-wrap"><a href="classts_1_1Cursor.html" class="m-doc">Cursor</a>&amp;&amp;) -&gt; <a href="classts_1_1Cursor.html" class="m-doc">Cursor</a>&amp; <span class="m-label m-flat m-info">defaulted</span></span>
+            </dt>
+            <dd></dd>
+            <dt id="adb24eb987fb602596d753d5965e89081">
+              <span class="m-doc-wrap-bumper">void <a href="#adb24eb987fb602596d753d5965e89081" class="m-doc-self">reset</a>(</span><span class="m-doc-wrap"><a href="classts_1_1Node.html" class="m-doc">Node</a>)</span>
+            </dt>
+            <dd>Reset the cursor to the given node.</dd>
+            <dt id="aaaa706b0ad9906299822588b6285f579">
+              <span class="m-doc-wrap-bumper">void <a href="#aaaa706b0ad9906299822588b6285f579" class="m-doc-self">reset</a>(</span><span class="m-doc-wrap">const <a href="classts_1_1Tree.html" class="m-doc">Tree</a>&amp;)</span>
+            </dt>
+            <dd>Reset the cursor to the root node of the given tree.</dd>
+            <dt id="a86f829afcc9943f70d12d38a7ad986c1">
+              <span class="m-doc-wrap-bumper">auto <a href="#a86f829afcc9943f70d12d38a7ad986c1" class="m-doc-self">current_node</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="classts_1_1Node.html" class="m-doc">Node</a></span>
+            </dt>
+            <dd>The node the cursor is currently pointing at.</dd>
+            <dt id="a1dd780564c32c8988b71be2fb22c64b2">
+              <span class="m-doc-wrap-bumper">auto <a href="#a1dd780564c32c8988b71be2fb22c64b2" class="m-doc-self">current_field_name</a>(</span><span class="m-doc-wrap">) const -&gt; const char*</span>
+            </dt>
+            <dd>The field name of the node the cursor is currently pointing at.</dd>
+            <dt id="a2a278ca60c22e737a5ba3e28f7cff874">
+              <span class="m-doc-wrap-bumper">auto <a href="#a2a278ca60c22e737a5ba3e28f7cff874" class="m-doc-self">current_field_id</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="namespacets.html#aa02910787d16f9525964f39c70094a31" class="m-doc">FieldId</a></span>
+            </dt>
+            <dd>The FieldId of the node the cursor is currently pointing at.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a45d2a150087d72ae527d501c24fdc5e5" class="m-doc">goto_parent</a>(</span><span class="m-doc-wrap">) -&gt; bool</span>
+            </dt>
+            <dd>Move the cursor to the parent of the current node.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#aae1827fd9e9cd79ca83521cb1e7e0bf6" class="m-doc">goto_next_sibling</a>(</span><span class="m-doc-wrap">) -&gt; bool</span>
+            </dt>
+            <dd>Move the cursor to the next sibling of the current node.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a76b1c9dda7871681aec8890a0e4cd375" class="m-doc">skip_n_siblings</a>(</span><span class="m-doc-wrap">int n) -&gt; int</span>
+            </dt>
+            <dd>Similar to calling <a href="classts_1_1Cursor.html#aae1827fd9e9cd79ca83521cb1e7e0bf6" class="m-doc">Cursor::<wbr />goto_next_sibling</a> n times.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#ac0da44dacf151c4fb05a341f9bf8e6d1" class="m-doc">goto_first_child</a>(</span><span class="m-doc-wrap">) -&gt; bool</span>
+            </dt>
+            <dd>Move the cursor to the first child of the current node.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a17417d0f15efb3066d8a585d9d07215d" class="m-doc">goto_next_named_sibling</a>(</span><span class="m-doc-wrap">) -&gt; bool</span>
+            </dt>
+            <dd>Move the cursor to the next named sibling of the current node.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a2dec6e6e8d0c2789cb6eef5959359df8" class="m-doc">goto_first_named_child</a>(</span><span class="m-doc-wrap">) -&gt; bool</span>
+            </dt>
+            <dd>Move the cursor to the next named sibling of the current node.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename Fn&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#a47d8bf8c9daaaacbbdad9b2305342127" class="m-doc">skip_siblings_while</a>(</span><span class="m-doc-wrap">Fn fn) -&gt; bool</span>
+            </dt>
+            <dd>Skips over nodes while the given callback returns <code>true</code>.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename Fn&gt;</div>
+              <span class="m-doc-wrap-bumper">void <a href="#a0016972977af051cbba5670a8ac23ec7" class="m-doc">foreach_remaining_siblings</a>(</span><span class="m-doc-wrap">Fn fn)</span>
+            </dt>
+            <dd>Calls the provided callback for every sibling and moves the cursor.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a5a9af28853da76727030bf17e6b781eb" class="m-doc">children</a>(</span><span class="m-doc-wrap">) -&gt; std::vector&lt;<a href="classts_1_1Node.html" class="m-doc">Node</a>&gt;</span>
+            </dt>
+            <dd>List of all child nodes of the current node.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a0e342dfef647bd440ba02ecc27f218bd" class="m-doc">named_children</a>(</span><span class="m-doc-wrap">) -&gt; std::vector&lt;<a href="classts_1_1Node.html" class="m-doc">Node</a>&gt;</span>
+            </dt>
+            <dd>List of all named child nodes of the current node.</dd>
+          </dl>
+        </section>
+        <section id="friends">
+          <h2><a href="#friends">Friends</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a0ae135cd010c0a5831e7a11f7c13432a" class="m-doc">swap</a>(</span><span class="m-doc-wrap"><a href="classts_1_1Cursor.html" class="m-doc">Cursor</a>&amp;,
+              <a href="classts_1_1Cursor.html" class="m-doc">Cursor</a>&amp;) <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="a9dd696ae1f08783a411bc13cbd8080d6"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"> ts::<wbr />Cursor::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a9dd696ae1f08783a411bc13cbd8080d6" class="m-doc-self">Cursor</a>(</span><span class="m-doc-wrap">const <a href="classts_1_1Cursor.html" class="m-doc">Cursor</a>&amp;) <span class="m-label m-success">noexcept</span></span></span>
+            </h3>
+<p>Copy constructor.</p>
+          </div></section>
+          <section class="m-doc-details" id="a3a30e102a1881da153fb194b08be2cc7"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"> ts::<wbr />Cursor::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a3a30e102a1881da153fb194b08be2cc7" class="m-doc-self">Cursor</a>(</span><span class="m-doc-wrap"><a href="classts_1_1Cursor.html" class="m-doc">Cursor</a>&amp;&amp;) <span class="m-label m-info">defaulted</span></span></span>
+            </h3>
+<p>Move constructor.</p>
+          </div></section>
+          <section class="m-doc-details" id="a1d7f65110294708fec70bde30c7be98e"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="classts_1_1Cursor.html" class="m-doc">Cursor</a>&amp; ts::<wbr />Cursor::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a1d7f65110294708fec70bde30c7be98e" class="m-doc-self">operator=</a>(</span><span class="m-doc-wrap">const <a href="classts_1_1Cursor.html" class="m-doc">Cursor</a>&amp;) <span class="m-label m-success">noexcept</span></span></span>
+            </h3>
+<p>Copy assignment operator.</p>
+          </div></section>
+          <section class="m-doc-details" id="a403866910ec5c272d730d60e839e8819"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="classts_1_1Cursor.html" class="m-doc">Cursor</a>&amp; ts::<wbr />Cursor::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a403866910ec5c272d730d60e839e8819" class="m-doc-self">operator=</a>(</span><span class="m-doc-wrap"><a href="classts_1_1Cursor.html" class="m-doc">Cursor</a>&amp;&amp;) <span class="m-label m-info">defaulted</span></span></span>
+            </h3>
+<p>Move assignment operator.</p>
+          </div></section>
+          <section class="m-doc-details" id="a45d2a150087d72ae527d501c24fdc5e5"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">bool ts::<wbr />Cursor::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a45d2a150087d72ae527d501c24fdc5e5" class="m-doc-self">goto_parent</a>(</span><span class="m-doc-wrap">)</span></span>
+            </h3>
+            <p>Move the cursor to the parent of the current node.</p>
+<p>Returns only false if the cursor is already at the root node.</p>
+          </div></section>
+          <section class="m-doc-details" id="aae1827fd9e9cd79ca83521cb1e7e0bf6"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">bool ts::<wbr />Cursor::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aae1827fd9e9cd79ca83521cb1e7e0bf6" class="m-doc-self">goto_next_sibling</a>(</span><span class="m-doc-wrap">)</span></span>
+            </h3>
+            <p>Move the cursor to the next sibling of the current node.</p>
+<p>Returns false if there was no next sibling.</p>
+          </div></section>
+          <section class="m-doc-details" id="a76b1c9dda7871681aec8890a0e4cd375"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">int ts::<wbr />Cursor::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a76b1c9dda7871681aec8890a0e4cd375" class="m-doc-self">skip_n_siblings</a>(</span><span class="m-doc-wrap">int n)</span></span>
+            </h3>
+            <p>Similar to calling <a href="classts_1_1Cursor.html#aae1827fd9e9cd79ca83521cb1e7e0bf6" class="m-doc">Cursor::<wbr />goto_next_sibling</a> n times.</p>
+<p>Returns the number of siblings skipped.</p>
+          </div></section>
+          <section class="m-doc-details" id="ac0da44dacf151c4fb05a341f9bf8e6d1"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">bool ts::<wbr />Cursor::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ac0da44dacf151c4fb05a341f9bf8e6d1" class="m-doc-self">goto_first_child</a>(</span><span class="m-doc-wrap">)</span></span>
+            </h3>
+            <p>Move the cursor to the first child of the current node.</p>
+<p>Returns <code>false</code> if there were no children.</p>
+          </div></section>
+          <section class="m-doc-details" id="a17417d0f15efb3066d8a585d9d07215d"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">bool ts::<wbr />Cursor::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a17417d0f15efb3066d8a585d9d07215d" class="m-doc-self">goto_next_named_sibling</a>(</span><span class="m-doc-wrap">)</span></span>
+            </h3>
+            <p>Move the cursor to the next named sibling of the current node.</p>
+<p>Returns <code>false</code> if there was no next sibling.</p><aside class="m-note m-info"><h4>Note</h4><p>This method might move the cursor to another unnamed node and then still return false if there is no named node.</p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a2dec6e6e8d0c2789cb6eef5959359df8"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">bool ts::<wbr />Cursor::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a2dec6e6e8d0c2789cb6eef5959359df8" class="m-doc-self">goto_first_named_child</a>(</span><span class="m-doc-wrap">)</span></span>
+            </h3>
+            <p>Move the cursor to the next named sibling of the current node.</p>
+<p>Returns <code>false</code> if there was no next sibling.</p><p>NOTE: This method might move the cursor to another unnamed node and then still return false if there is no named node.</p>
+          </div></section>
+          <section class="m-doc-details" id="a47d8bf8c9daaaacbbdad9b2305342127"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Fn&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">bool ts::<wbr />Cursor::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a47d8bf8c9daaaacbbdad9b2305342127" class="m-doc-self">skip_siblings_while</a>(</span><span class="m-doc-wrap">Fn fn)</span></span>
+            </h3>
+            <p>Skips over nodes while the given callback returns <code>true</code>.</p>
+<p>The method returns <code>false</code> if there were no more siblings to skip while the callback still returned <code>true</code>.</p>
+          </div></section>
+          <section class="m-doc-details" id="a0016972977af051cbba5670a8ac23ec7"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Fn&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">void ts::<wbr />Cursor::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a0016972977af051cbba5670a8ac23ec7" class="m-doc-self">foreach_remaining_siblings</a>(</span><span class="m-doc-wrap">Fn fn)</span></span>
+            </h3>
+            <p>Calls the provided callback for every sibling and moves the cursor.</p>
+<p>The callback will also be called on the current node. So it will always be called at least once.</p>
+          </div></section>
+          <section class="m-doc-details" id="a5a9af28853da76727030bf17e6b781eb"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">std::vector&lt;<a href="classts_1_1Node.html" class="m-doc">Node</a>&gt; ts::<wbr />Cursor::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a5a9af28853da76727030bf17e6b781eb" class="m-doc-self">children</a>(</span><span class="m-doc-wrap">)</span></span>
+            </h3>
+            <p>List of all child nodes of the current node.</p>
+<p>This will also move the cursor to the last child but you can <a href="classts_1_1Cursor.html#adb24eb987fb602596d753d5965e89081" class="m-doc">Cursor::<wbr />reset</a> the cursor to point at any of the returned children or call &#x27;parent&#x27; to get back to the current node.</p>
+          </div></section>
+          <section class="m-doc-details" id="a0e342dfef647bd440ba02ecc27f218bd"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">std::vector&lt;<a href="classts_1_1Node.html" class="m-doc">Node</a>&gt; ts::<wbr />Cursor::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a0e342dfef647bd440ba02ecc27f218bd" class="m-doc-self">named_children</a>(</span><span class="m-doc-wrap">)</span></span>
+            </h3>
+            <p>List of all named child nodes of the current node.</p>
+<p>This will also move the cursor to the last child but you can <a href="classts_1_1Cursor.html#adb24eb987fb602596d753d5965e89081" class="m-doc">Cursor::<wbr />reset</a> the cursor to point at any of the returned children or call Cursor::parent to get back to the current node.</p>
+          </div></section>
+          <section class="m-doc-details" id="a0ae135cd010c0a5831e7a11f7c13432a"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a0ae135cd010c0a5831e7a11f7c13432a" class="m-doc-self">swap</a>(</span><span class="m-doc-wrap"><a href="classts_1_1Cursor.html" class="m-doc">Cursor</a>&amp;,
+              <a href="classts_1_1Cursor.html" class="m-doc">Cursor</a>&amp;) <span class="m-label m-success">noexcept</span></span></span>
+            </h3>
+<p>Swap function.</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>TreeSitterWrapper C++ Wrapper for Tree-Sitter. Created with <a href="https://doxygen.org/">Doxygen</a> 1.8.17 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

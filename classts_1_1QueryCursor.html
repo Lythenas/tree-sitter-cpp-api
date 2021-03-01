@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ts::QueryCursor class | TreeSitterWrapper C++ Wrapper for Tree-Sitter</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="icon" href="favicon-dark.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://lythenas.github.io/tree-sitter-cpp-api/">TreeSitterWrapper</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">C++ Wrapper for Tree-Sitter</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li>
+              <a href="namespaces.html">Namespaces</a>
+              <ol>
+                <li><a href="namespacets.html">ts</a></li>
+              </ol>
+            </li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="https://lythenas.github.io/tree-sitter-cpp-api/">GitHub</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="namespacets.html">ts</a>::<wbr/></span>QueryCursor <span class="m-thin">class</span>
+        </h1>
+        <p>Stores the state needed to execute a query and iteratively search for matches.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#typeless-methods">Constructors, destructors, conversion operators</a></li>
+                <li><a href="#pub-methods">Public functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<p>You first have to call <a href="classts_1_1QueryCursor.html#ae2d8d52a619c5dc36184b6e7a39746d7" class="m-doc">QueryCursor::<wbr />exec</a> with the <a href="classts_1_1Query.html" class="m-doc">Query</a> and then you can retrieve matches with the other functions.</p><p>You can iterate over the result matches by calling <a href="classts_1_1QueryCursor.html#a008219b21fbeaf9a5bdd21d8bfb5a782" class="m-doc">QueryCursor::<wbr />next_match</a>. This is only useful if you provided multiple patterns.</p><p>You can also iterate over the captures if you don&#x27;t care which patterns matched.</p><p>At any point you can call <a href="classts_1_1QueryCursor.html#ae2d8d52a619c5dc36184b6e7a39746d7" class="m-doc">QueryCursor::<wbr />exec</a> again and start using the cursor with another query.</p><p>Can&#x27;t be copied because the underlying <code>TSQueryCursor</code> can&#x27;t be copied.</p><p>Features not included (because we currently don&#x27;t use them):</p><ul><li>setting byte/point range to search in:<ul><li><code>ts_query_cursor_set_byte_range</code></li><li><code>ts_query_cursor_set_point_range</code></li></ul></li></ul>
+        <section id="typeless-methods">
+          <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
+          <dl class="m-doc">
+            <dt id="a9a7706bdf119f37e9e422e7930e13ba4">
+              <span class="m-doc-wrap-bumper"><a href="#a9a7706bdf119f37e9e422e7930e13ba4" class="m-doc-self">QueryCursor</a>(</span><span class="m-doc-wrap">const <a href="classts_1_1Tree.html" class="m-doc">Tree</a>&amp;) <span class="m-label m-flat m-info">explicit</span>  <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd>Create a <a href="classts_1_1QueryCursor.html" class="m-doc">QueryCursor</a> for a <a href="classts_1_1Tree.html" class="m-doc">Tree</a>.</dd>
+            <dt id="a9c2275e2b6430aa5105021e27ee547b9">
+              <span class="m-doc-wrap-bumper"><a href="#a9c2275e2b6430aa5105021e27ee547b9" class="m-doc-self">QueryCursor</a>(</span><span class="m-doc-wrap"><a href="classts_1_1QueryCursor.html" class="m-doc">QueryCursor</a>&amp;&amp;) <span class="m-label m-flat m-info">defaulted</span></span>
+            </dt>
+            <dd>Move constructor.</dd>
+          </dl>
+        </section>
+        <section id="pub-methods">
+          <h2><a href="#pub-methods">Public functions</a></h2>
+          <dl class="m-doc">
+            <dt id="aefa90dacaa502d59eaf4cb470eaf0fde">
+              <span class="m-doc-wrap-bumper">auto <a href="#aefa90dacaa502d59eaf4cb470eaf0fde" class="m-doc-self">operator=</a>(</span><span class="m-doc-wrap"><a href="classts_1_1QueryCursor.html" class="m-doc">QueryCursor</a>&amp;&amp;) -&gt; <a href="classts_1_1QueryCursor.html" class="m-doc">QueryCursor</a>&amp; <span class="m-label m-flat m-info">defaulted</span></span>
+            </dt>
+            <dd>Move assignment operator.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a11319cf52a9c63bb906fea2f22904d55" class="m-doc">raw</a>(</span><span class="m-doc-wrap">) const -&gt; const TSQueryCursor*</span>
+            </dt>
+            <dd>Returns the raw Tree-Sitter query.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a07df36fa3c5e0b67847e481034d57086" class="m-doc">raw</a>(</span><span class="m-doc-wrap">) -&gt; TSQueryCursor*</span>
+            </dt>
+            <dd>Returns the raw Tree-Sitter query.</dd>
+            <dt id="ae2d8d52a619c5dc36184b6e7a39746d7">
+              <span class="m-doc-wrap-bumper">void <a href="#ae2d8d52a619c5dc36184b6e7a39746d7" class="m-doc-self">exec</a>(</span><span class="m-doc-wrap">const <a href="classts_1_1Query.html" class="m-doc">Query</a>&amp;,
+              <a href="classts_1_1Node.html" class="m-doc">Node</a>)</span>
+            </dt>
+            <dd>Start running a given query on a given node.</dd>
+            <dt id="aed13721105da6fc2b9ef97e91d0cc46a">
+              <span class="m-doc-wrap-bumper">void <a href="#aed13721105da6fc2b9ef97e91d0cc46a" class="m-doc-self">exec</a>(</span><span class="m-doc-wrap">const <a href="classts_1_1Query.html" class="m-doc">Query</a>&amp;)</span>
+            </dt>
+            <dd>Start running a given query on the root of the tree.</dd>
+            <dt id="a008219b21fbeaf9a5bdd21d8bfb5a782">
+              <span class="m-doc-wrap-bumper">auto <a href="#a008219b21fbeaf9a5bdd21d8bfb5a782" class="m-doc-self">next_match</a>(</span><span class="m-doc-wrap">) -&gt; std::optional&lt;<a href="structts_1_1Match.html" class="m-doc">Match</a>&gt;</span>
+            </dt>
+            <dd>Advance to the next match of the currently running query if possible.</dd>
+            <dt id="a6c9031a16d536a42ed12545e37de5dc7">
+              <span class="m-doc-wrap-bumper">auto <a href="#a6c9031a16d536a42ed12545e37de5dc7" class="m-doc-self">next_capture</a>(</span><span class="m-doc-wrap">) -&gt; std::optional&lt;<a href="structts_1_1Capture.html" class="m-doc">Capture</a>&gt;</span>
+            </dt>
+            <dd>Advance to the next capture of the currently running query if possible.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#aa1b8da1ccaaa3977da6ac77350c75884" class="m-doc">matches</a>(</span><span class="m-doc-wrap">) -&gt; std::vector&lt;<a href="structts_1_1Match.html" class="m-doc">Match</a>&gt;</span>
+            </dt>
+            <dd>Get all matches.</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="a11319cf52a9c63bb906fea2f22904d55"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">const TSQueryCursor* ts::<wbr />QueryCursor::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a11319cf52a9c63bb906fea2f22904d55" class="m-doc-self">raw</a>(</span><span class="m-doc-wrap">) const</span></span>
+            </h3>
+            <p>Returns the raw Tree-Sitter query.</p>
+<aside class="m-note m-danger"><h4>Warning</h4><p>Use with care. Only intended vor internal use in the wrapper types.</p><p>Never free or otherwise delete this pointer.</p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a07df36fa3c5e0b67847e481034d57086"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">TSQueryCursor* ts::<wbr />QueryCursor::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a07df36fa3c5e0b67847e481034d57086" class="m-doc-self">raw</a>(</span><span class="m-doc-wrap">)</span></span>
+            </h3>
+            <p>Returns the raw Tree-Sitter query.</p>
+<aside class="m-note m-danger"><h4>Warning</h4><p>Use with care. Only intended vor internal use in the wrapper types.</p><p>Never free or otherwise delete this pointer.</p></aside>
+          </div></section>
+          <section class="m-doc-details" id="aa1b8da1ccaaa3977da6ac77350c75884"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">std::vector&lt;<a href="structts_1_1Match.html" class="m-doc">Match</a>&gt; ts::<wbr />QueryCursor::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aa1b8da1ccaaa3977da6ac77350c75884" class="m-doc-self">matches</a>(</span><span class="m-doc-wrap">)</span></span>
+            </h3>
+            <p>Get all matches.</p>
+<p>This needs to internally advance over the matches so you can only call this once. Subsequent calls will return an empty vector.</p><p>This will also omit matches that were already retrieved by calling <a href="classts_1_1QueryCursor.html#a008219b21fbeaf9a5bdd21d8bfb5a782" class="m-doc">QueryCursor::<wbr />next_match</a>.</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>TreeSitterWrapper C++ Wrapper for Tree-Sitter. Created with <a href="https://doxygen.org/">Doxygen</a> 1.8.17 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

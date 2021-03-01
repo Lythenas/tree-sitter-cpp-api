@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ts namespace | TreeSitterWrapper C++ Wrapper for Tree-Sitter</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="icon" href="favicon-dark.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://lythenas.github.io/tree-sitter-cpp-api/">TreeSitterWrapper</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">C++ Wrapper for Tree-Sitter</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li>
+              <a href="namespaces.html">Namespaces</a>
+              <ol>
+                <li><a href="namespacets.html" id="m-navbar-current">ts</a></li>
+              </ol>
+            </li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="https://lythenas.github.io/tree-sitter-cpp-api/">GitHub</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          ts <span class="m-thin">namespace</span>
+        </h1>
+        <p>C++ wrapper for the C Tree-Sitter API.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#typedef-members">Typedefs</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#var-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<p>Wrapper types and helper functions for Tree-Sitter.</p>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structts_1_1AppliedEdit.html" class="m-doc">AppliedEdit</a>
+            </dt>
+            <dd>Holds information about an applied <a href="structts_1_1Edit.html" class="m-doc">Edit</a>.</dd>
+            <dt>
+              struct <a href="structts_1_1Capture.html" class="m-doc">Capture</a>
+            </dt>
+            <dd>A capture of a node in a syntax tree.</dd>
+            <dt>
+              class <a href="classts_1_1Cursor.html" class="m-doc">Cursor</a>
+            </dt>
+            <dd>Allows efficient walking of a <a href="classts_1_1Tree.html" class="m-doc">Tree</a>.</dd>
+            <dt>
+              struct <a href="structts_1_1Edit.html" class="m-doc">Edit</a>
+            </dt>
+            <dd>Used to modify the source code and parse tree.</dd>
+            <dt>
+              class <a href="classts_1_1EditException.html" class="m-doc">EditException</a>
+            </dt>
+            <dd>Base class for exceptions related to applying edits to the tree.</dd>
+            <dt>
+              struct <a href="structts_1_1EditResult.html" class="m-doc">EditResult</a>
+            </dt>
+            <dd>Holds information about all applied edits.</dd>
+            <dt>
+              class <a href="classts_1_1Language.html" class="m-doc">Language</a>
+            </dt>
+            <dd>Tree-Sitter language grammar.</dd>
+            <dt>
+              struct <a href="structts_1_1Location.html" class="m-doc">Location</a>
+            </dt>
+            <dd>Location in source code as row, column and byte offset.</dd>
+            <dt>
+              struct <a href="structts_1_1Match.html" class="m-doc">Match</a>
+            </dt>
+            <dd>A match of a pattern in a syntax tree.</dd>
+            <dt>
+              class <a href="classts_1_1MultilineEditException.html" class="m-doc">MultilineEditException</a>
+            </dt>
+            <dd>Newlines are not allowed in <a href="structts_1_1Edit.html" class="m-doc">Edit</a>s.</dd>
+            <dt>
+              class <a href="classts_1_1Node.html" class="m-doc">Node</a>
+            </dt>
+            <dd>A syntax node in a parsed tree.</dd>
+            <dt>
+              class <a href="classts_1_1NullNodeException.html" class="m-doc">NullNodeException</a>
+            </dt>
+            <dd>Thrown by the constructor of <a href="classts_1_1Node.html" class="m-doc">Node</a> if you try to create a null node.</dd>
+            <dt>
+              class <a href="classts_1_1OverlappingEditException.html" class="m-doc">OverlappingEditException</a>
+            </dt>
+            <dd>Overlapping <a href="structts_1_1Edit.html" class="m-doc">Edit</a>s are not allowed.</dd>
+            <dt>
+              class <a href="classts_1_1ParseFailureException.html" class="m-doc">ParseFailureException</a>
+            </dt>
+            <dd>Thrown by <a href="classts_1_1Parser.html#ab9f55ce51a93738a266d16cdde2881ac" class="m-doc">Parser::<wbr />parse_string</a> (should never actually be thrown).</dd>
+            <dt>
+              class <a href="classts_1_1Parser.html" class="m-doc">Parser</a>
+            </dt>
+            <dd><a href="classts_1_1Parser.html" class="m-doc">Parser</a> for a Tree-Sitter language.</dd>
+            <dt>
+              class <a href="classts_1_1ParserLanguageException.html" class="m-doc">ParserLanguageException</a>
+            </dt>
+            <dd>Version missmatch between Tree-Sitter and the <a href="classts_1_1Language.html" class="m-doc">Language</a> grammar.</dd>
+            <dt>
+              struct <a href="structts_1_1Point.html" class="m-doc">Point</a>
+            </dt>
+            <dd>Location in source code as row and column.</dd>
+            <dt>
+              class <a href="classts_1_1Query.html" class="m-doc">Query</a>
+            </dt>
+            <dd>A query is a &quot;pre-compiled&quot; string of S-expression patterns.</dd>
+            <dt>
+              class <a href="classts_1_1QueryCursor.html" class="m-doc">QueryCursor</a>
+            </dt>
+            <dd>Stores the state needed to execute a query and iteratively search for matches.</dd>
+            <dt>
+              class <a href="classts_1_1QueryException.html" class="m-doc">QueryException</a>
+            </dt>
+            <dd>Syntax error in a <a href="classts_1_1Query.html" class="m-doc">Query</a> string.</dd>
+            <dt>
+              struct <a href="structts_1_1Range.html" class="m-doc">Range</a>
+            </dt>
+            <dd>Range in the source code (start and end <a href="structts_1_1Point.html" class="m-doc">Point</a>s).</dd>
+            <dt>
+              class <a href="classts_1_1Tree.html" class="m-doc">Tree</a>
+            </dt>
+            <dd>A syntax tree.</dd>
+            <dt>
+              class <a href="classts_1_1TreeSitterException.html" class="m-doc">TreeSitterException</a>
+            </dt>
+            <dd>Base exception class for errors in the Tree-Sitter wrapper.</dd>
+            <dt>
+              class <a href="classts_1_1ZeroSizedEditException.html" class="m-doc">ZeroSizedEditException</a>
+            </dt>
+            <dd>Empty <a href="structts_1_1Edit.html" class="m-doc">Edit</a>s are not allwed.</dd>
+          </dl>
+        </section>
+        <section id="enum-members">
+          <h2><a href="#enum-members">Enums</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">enum class <a href="#a4b1e0c2da53e86fac30568c832aa2720" class="m-doc">TypeKind</a> { </span><span class="m-doc-wrap"><a href="#a4b1e0c2da53e86fac30568c832aa2720a02a7d85bf0d59dff6a850fb5d7dbbe01" class="m-doc">Named</a>,
+              <a href="#a4b1e0c2da53e86fac30568c832aa2720a7079c72c21415131774625ba1d64f4b0" class="m-doc">Anonymous</a>,
+              <a href="#a4b1e0c2da53e86fac30568c832aa2720a7acdf85c69cc3c5305456a293524386e" class="m-doc">Hidden</a> }</span>
+            </dt>
+            <dd>Kind of a TypeId.</dd>
+          </dl>
+        </section>
+        <section id="typedef-members">
+          <h2><a href="#typedef-members">Typedefs</a></h2>
+          <dl class="m-doc">
+            <dt id="a51f4186042d79f66c64450dcedb18fd3">
+              using <a href="#a51f4186042d79f66c64450dcedb18fd3" class="m-doc-self">TypeId</a> = TSSymbol
+            </dt>
+            <dd>Numeric representation of the type of a node.</dd>
+            <dt id="aa02910787d16f9525964f39c70094a31">
+              using <a href="#aa02910787d16f9525964f39c70094a31" class="m-doc-self">FieldId</a> = TSFieldId
+            </dt>
+            <dd>Numeric representation of a field.</dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a9f3e6fe3271ff2d1dfcc3fa692c06f2c">
+              <span class="m-doc-wrap-bumper">auto <a href="#a9f3e6fe3271ff2d1dfcc3fa692c06f2c" class="m-doc-self">language_compatible</a>(</span><span class="m-doc-wrap">const <a href="classts_1_1Language.html" class="m-doc">Language</a>&amp;) -&gt; bool</span>
+            </dt>
+            <dd>Check if a language is compatible with the linked Tree-Sitter version.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#afcf8a585eea4f04ebf58f173f0ec6974" class="m-doc">visit_children</a>(</span><span class="m-doc-wrap"><a href="classts_1_1Cursor.html" class="m-doc">Cursor</a>&amp; cursor,
+              const std::function&lt;void(<a href="classts_1_1Node.html" class="m-doc">ts::<wbr />Node</a>)&gt;&amp; fn)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a3f05e838bf629fc10c5cfd5a36273b5d" class="m-doc">visit_siblings</a>(</span><span class="m-doc-wrap"><a href="classts_1_1Cursor.html" class="m-doc">Cursor</a>&amp; cursor,
+              const std::function&lt;void(<a href="classts_1_1Node.html" class="m-doc">ts::<wbr />Node</a>)&gt;&amp; fn)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename Fn&gt;</div>
+              <span class="m-doc-wrap-bumper">static void <a href="#abea3c01cb968ebdbeaaa43de439939e2" class="m-doc">visit_tree</a>(</span><span class="m-doc-wrap">const <a href="classts_1_1Tree.html" class="m-doc">ts::<wbr />Tree</a>&amp; tree,
+              Fn fn)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a4f82aafe260a2e310f1948bb5f3bc536" class="m-doc">debug_print_tree</a>(</span><span class="m-doc-wrap"><a href="classts_1_1Node.html" class="m-doc">Node</a> node) -&gt; std::string</span>
+            </dt>
+            <dd>Prints a debug representation of the tree starting at the node.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a835f100e9ac74ad8d311c4afbf2e368c" class="m-doc">debug_print_node</a>(</span><span class="m-doc-wrap"><a href="classts_1_1Node.html" class="m-doc">Node</a> node) -&gt; std::string</span>
+            </dt>
+            <dd>Prints a debug representation of the node (does not print children).</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#ac43998b0be4e19fe035a81189a0acfde" class="m-doc">swap</a>(</span><span class="m-doc-wrap"><a href="classts_1_1Cursor.html" class="m-doc">Cursor</a>&amp; self,
+              <a href="classts_1_1Cursor.html" class="m-doc">Cursor</a>&amp; other) <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section id="var-members">
+          <h2><a href="#var-members">Variables</a></h2>
+          <dl class="m-doc">
+            <dt>
+              const std::size_t <a href="#ae161f9e345925ac16967c2d195a2fc3a" class="m-doc">TREE_SITTER_VERSION</a>
+            </dt>
+            <dd>Tree-Sitter current language version.</dd>
+            <dt>
+              const std::size_t <a href="#ad2a9dc3dfb34c26dc9f093c924d4aa18" class="m-doc">TREE_SITTER_MIN_VERSION</a>
+            </dt>
+            <dd>Tree-Sitter minimum supported language version.</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Enum documentation</h2>
+          <section class="m-doc-details" id="a4b1e0c2da53e86fac30568c832aa2720"><div>
+            <h3>
+              enum class ts::<wbr /><a href="#a4b1e0c2da53e86fac30568c832aa2720" class="m-doc-self">TypeKind</a>
+            </h3>
+            <p>Kind of a TypeId.</p>
+<p>Analogous to Tree-Sitters TSSymbolType.</p>
+            <table class="m-table m-fullwidth m-flat m-doc">
+              <thead><tr><th style="width: 1%">Enumerators</th><th></th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><a href="#a4b1e0c2da53e86fac30568c832aa2720a02a7d85bf0d59dff6a850fb5d7dbbe01" class="m-doc-self" id="a4b1e0c2da53e86fac30568c832aa2720a02a7d85bf0d59dff6a850fb5d7dbbe01">Named</a></td>
+                  <td>
+                  <p>Named.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a4b1e0c2da53e86fac30568c832aa2720a7079c72c21415131774625ba1d64f4b0" class="m-doc-self" id="a4b1e0c2da53e86fac30568c832aa2720a7079c72c21415131774625ba1d64f4b0">Anonymous</a></td>
+                  <td>
+                  <p>Anonymous.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#a4b1e0c2da53e86fac30568c832aa2720a7acdf85c69cc3c5305456a293524386e" class="m-doc-self" id="a4b1e0c2da53e86fac30568c832aa2720a7acdf85c69cc3c5305456a293524386e">Hidden</a></td>
+                  <td>
+                  <p>Hidden (should not be returned by the Api).</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="afcf8a585eea4f04ebf58f173f0ec6974"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void ts::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#afcf8a585eea4f04ebf58f173f0ec6974" class="m-doc-self">visit_children</a>(</span><span class="m-doc-wrap"><a href="classts_1_1Cursor.html" class="m-doc">Cursor</a>&amp; cursor,
+              const std::function&lt;void(<a href="classts_1_1Node.html" class="m-doc">ts::<wbr />Node</a>)&gt;&amp; fn)</span></span>
+            </h3>
+<p>Visits all children of the cursor and call the given function.</p>
+          </div></section>
+          <section class="m-doc-details" id="a3f05e838bf629fc10c5cfd5a36273b5d"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void ts::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a3f05e838bf629fc10c5cfd5a36273b5d" class="m-doc-self">visit_siblings</a>(</span><span class="m-doc-wrap"><a href="classts_1_1Cursor.html" class="m-doc">Cursor</a>&amp; cursor,
+              const std::function&lt;void(<a href="classts_1_1Node.html" class="m-doc">ts::<wbr />Node</a>)&gt;&amp; fn)</span></span>
+            </h3>
+<p>Visit all siblings of the cursor and call the given function.</p>
+          </div></section>
+          <section class="m-doc-details" id="abea3c01cb968ebdbeaaa43de439939e2"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Fn&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">static void ts::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#abea3c01cb968ebdbeaaa43de439939e2" class="m-doc-self">visit_tree</a>(</span><span class="m-doc-wrap">const <a href="classts_1_1Tree.html" class="m-doc">ts::<wbr />Tree</a>&amp; tree,
+              Fn fn)</span></span>
+            </h3>
+<p>Visits a tree using a cursor.</p>
+          </div></section>
+          <section class="m-doc-details" id="a4f82aafe260a2e310f1948bb5f3bc536"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">std::string ts::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a4f82aafe260a2e310f1948bb5f3bc536" class="m-doc-self">debug_print_tree</a>(</span><span class="m-doc-wrap"><a href="classts_1_1Node.html" class="m-doc">Node</a> node)</span></span>
+            </h3>
+            <p>Prints a debug representation of the tree starting at the node.</p>
+<p>See debug_print_node.</p>
+          </div></section>
+          <section class="m-doc-details" id="a835f100e9ac74ad8d311c4afbf2e368c"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">std::string ts::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a835f100e9ac74ad8d311c4afbf2e368c" class="m-doc-self">debug_print_node</a>(</span><span class="m-doc-wrap"><a href="classts_1_1Node.html" class="m-doc">Node</a> node)</span></span>
+            </h3>
+            <p>Prints a debug representation of the node (does not print children).</p>
+<p>This is easier to read than <a href="classts_1_1Node.html#a620f9b716eca1273969b0974d70e0d43" class="m-doc">Node::<wbr />as_s_expr</a> and contains more information.</p><p>Additional node properties are indicated by a symbol after the node name:</p><ul><li>has_changes: *</li><li>has_errors: E</li><li>is_names: N</li><li>is_missing: ?</li><li>is_extra: +</li></ul>
+          </div></section>
+          <section class="m-doc-details" id="ac43998b0be4e19fe035a81189a0acfde"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void ts::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ac43998b0be4e19fe035a81189a0acfde" class="m-doc-self">swap</a>(</span><span class="m-doc-wrap"><a href="classts_1_1Cursor.html" class="m-doc">Cursor</a>&amp; self,
+              <a href="classts_1_1Cursor.html" class="m-doc">Cursor</a>&amp; other) <span class="m-label m-success">noexcept</span></span></span>
+            </h3>
+<p>Swap function.</p>
+          </div></section>
+        </section>
+        <section>
+          <h2>Variable documentation</h2>
+          <section class="m-doc-details" id="ae161f9e345925ac16967c2d195a2fc3a"><div>
+            <h3>
+              const std::size_t ts::<wbr /><a href="#ae161f9e345925ac16967c2d195a2fc3a" class="m-doc-self">TREE_SITTER_VERSION</a>
+            </h3>
+            <p>Tree-Sitter current language version.</p>
+<p>Version for langauges created using the current tree-sitter version.</p><p>Can be thought of as the max version for langauges.</p>
+          </div></section>
+          <section class="m-doc-details" id="ad2a9dc3dfb34c26dc9f093c924d4aa18"><div>
+            <h3>
+              const std::size_t ts::<wbr /><a href="#ad2a9dc3dfb34c26dc9f093c924d4aa18" class="m-doc-self">TREE_SITTER_MIN_VERSION</a>
+            </h3>
+            <p>Tree-Sitter minimum supported language version.</p>
+<p>Minimum supported version of languages.</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>TreeSitterWrapper C++ Wrapper for Tree-Sitter. Created with <a href="https://doxygen.org/">Doxygen</a> 1.8.17 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ts::Node class | TreeSitterWrapper C++ Wrapper for Tree-Sitter</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="icon" href="favicon-dark.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://lythenas.github.io/tree-sitter-cpp-api/">TreeSitterWrapper</a> <span class="m-breadcrumb">|</span> <a href="index.html" class="m-thin">C++ Wrapper for Tree-Sitter</a>
+      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li>
+              <a href="namespaces.html">Namespaces</a>
+              <ol>
+                <li><a href="namespacets.html">ts</a></li>
+              </ol>
+            </li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="https://lythenas.github.io/tree-sitter-cpp-api/">GitHub</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="namespacets.html">ts</a>::<wbr/></span>Node <span class="m-thin">class</span>
+        </h1>
+        <p>A syntax node in a parsed tree.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#pub-static-attribs">Public static variables</a></li>
+                <li><a href="#pub-static-methods">Public static functions</a></li>
+                <li><a href="#typeless-methods">Constructors, destructors, conversion operators</a></li>
+                <li><a href="#pub-methods">Public functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<p>Wrapper for a TSNode.</p><p>Nodes can be named or anonymous (see <a href="https://tree-sitter.github.io/tree-sitter/using-parsers#named-vs-anonymous-nodes">Named vs Anonymous Nodes</a>).</p><p>Nodes can&#x27;t be null. If you try to create a null node the constructor will throw a <a href="classts_1_1NullNodeException.html" class="m-doc">NullNodeException</a>. (But this constructor should only be used internally.)</p><aside class="m-note m-info"><h4>Note</h4><p>This object is only valid for as long as the <a href="classts_1_1Tree.html" class="m-doc">Tree</a> it was created from. If the tree was edited, methods on the node might return wrong results. In this case you should retrieve the node from the tree again.</p><p><a href="classts_1_1Node.html#ab3165e0e1b5390c8b904640a60050be9" class="m-doc">Node::<wbr />type_id</a> is called <em>symbol</em> in Tree-Sitter. We renamed it to keep it in line with the type name (TypeId).</p></aside><p>Supports equality operators.</p><p>Features not included (because we currently don&#x27;t use them):</p><ul><li>Get child by field:<ul><li><code>ts_node_child_by_field_name</code></li><li><code>ts_node_child_by_field_id</code></li></ul></li><li>Get child/decendant for byte/point (range):<ul><li><code>ts_node_first_child_for_byte</code></li><li><code>ts_node_first_named_child_for_byte</code></li><li><code>ts_node_descendant_for_byte_range</code></li><li><code>ts_node_descendant_for_point_range</code></li><li><code>ts_node_named_descendant_for_byte_range</code></li><li><code>ts_node_named_descendant_for_point_range</code></li></ul></li><li>Editing nodes directly (but we support this through the <a href="classts_1_1Tree.html" class="m-doc">Tree</a>):<ul><li><code>ts_node_edit</code></li></ul></li></ul>
+        <section id="pub-static-attribs">
+          <h2><a href="#pub-static-attribs">Public static variables</a></h2>
+          <dl class="m-doc">
+            <dt>
+              static <a href="structts_1_1Node_1_1unsafe__t.html" class="m-doc">unsafe_<wbr />t</a> <a href="#a8fbd6764d2f3ba612e32dd2e350af537" class="m-doc">unsafe</a> <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd>Type tag for the unsafe constructor.</dd>
+          </dl>
+        </section>
+        <section id="pub-static-methods">
+          <h2><a href="#pub-static-methods">Public static functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a91209fdfaf8787165833a0539c6c5859">
+              <span class="m-doc-wrap-bumper">static auto <a href="#a91209fdfaf8787165833a0539c6c5859" class="m-doc-self">or_null</a>(</span><span class="m-doc-wrap">TSNode node,
+              const <a href="classts_1_1Tree.html" class="m-doc">Tree</a>&amp; tree) -&gt; std::optional&lt;<a href="classts_1_1Node.html" class="m-doc">Node</a>&gt; <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd>Create a <a href="classts_1_1Node.html" class="m-doc">Node</a> if <code>node</code> is not null.</dd>
+          </dl>
+        </section>
+        <section id="typeless-methods">
+          <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper"><a href="#a599ef0e9b132e09200eca61229d486c0" class="m-doc">Node</a>(</span><span class="m-doc-wrap">TSNode node,
+              const <a href="classts_1_1Tree.html" class="m-doc">Tree</a>&amp; tree)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper"><a href="#a0a5a161029d531da4001a0baa1fd63ff" class="m-doc">Node</a>(</span><span class="m-doc-wrap"><a href="structts_1_1Node_1_1unsafe__t.html" class="m-doc">unsafe_<wbr />t</a>,
+              TSNode node,
+              const <a href="classts_1_1Tree.html" class="m-doc">Tree</a>&amp; tree) <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section id="pub-methods">
+          <h2><a href="#pub-methods">Public functions</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a0ae23a4f5622ab6b9615d5fd31c8da47" class="m-doc">raw</a>(</span><span class="m-doc-wrap">) const -&gt; TSNode</span>
+            </dt>
+            <dd>Returns the raw Tree-Sitter node.</dd>
+            <dt id="ad87c22eba0b035fc700842a9e8b591f4">
+              <span class="m-doc-wrap-bumper">auto <a href="#ad87c22eba0b035fc700842a9e8b591f4" class="m-doc-self">tree</a>(</span><span class="m-doc-wrap">) const -&gt; const <a href="classts_1_1Tree.html" class="m-doc">Tree</a>&amp;</span>
+            </dt>
+            <dd>The <a href="classts_1_1Tree.html" class="m-doc">Tree</a> this node was created from.</dd>
+            <dt id="a1f178e1bc9cb2df92c6bcba99081d7b1">
+              <span class="m-doc-wrap-bumper">auto <a href="#a1f178e1bc9cb2df92c6bcba99081d7b1" class="m-doc-self">type</a>(</span><span class="m-doc-wrap">) const -&gt; const char*</span>
+            </dt>
+            <dd>The substring of the source code this node represents.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#ab3165e0e1b5390c8b904640a60050be9" class="m-doc">type_id</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="namespacets.html#a51f4186042d79f66c64450dcedb18fd3" class="m-doc">TypeId</a></span>
+            </dt>
+            <dd>The numeric TypeId of the node.</dd>
+            <dt id="a86bb35c266917a2108f43d3ae6569f76">
+              <span class="m-doc-wrap-bumper">auto <a href="#a86bb35c266917a2108f43d3ae6569f76" class="m-doc-self">is_named</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Check if the node is named.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#ac25a0ba63a5dd5f513de34258ef13120" class="m-doc">is_missing</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Check if the node is <em>missing</em>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#aaae7bc0d99bbf42c28d796e5b80e4267" class="m-doc">is_extra</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Check if the node is <em>extra</em>.</dd>
+            <dt id="a957ab669f7535848cdf67851b64ce476">
+              <span class="m-doc-wrap-bumper">auto <a href="#a957ab669f7535848cdf67851b64ce476" class="m-doc-self">has_changes</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Check if the node has been edited.</dd>
+            <dt id="a8daf1cb3db53450d3bf52ea347ca81b1">
+              <span class="m-doc-wrap-bumper">auto <a href="#a8daf1cb3db53450d3bf52ea347ca81b1" class="m-doc-self">has_error</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Check if the node (or any of its children) is a syntax error.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#ac6dd1ffb092c80a1b074ddb6feb81390" class="m-doc">parent</a>(</span><span class="m-doc-wrap">) const -&gt; std::optional&lt;<a href="classts_1_1Node.html" class="m-doc">Node</a>&gt;</span>
+            </dt>
+            <dd>The parent of the node.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a7a501b6fdb21497f56864788ab688882" class="m-doc">child</a>(</span><span class="m-doc-wrap">std::uint32_t index) const -&gt; std::optional&lt;<a href="classts_1_1Node.html" class="m-doc">Node</a>&gt;</span>
+            </dt>
+            <dd>The n-th child (0 indexed). Counts named and anonymous nodes.</dd>
+            <dt id="a9934c46f82283119aae7e7f34950d0d5">
+              <span class="m-doc-wrap-bumper">auto <a href="#a9934c46f82283119aae7e7f34950d0d5" class="m-doc-self">child_count</a>(</span><span class="m-doc-wrap">) const -&gt; std::uint32_t</span>
+            </dt>
+            <dd>The number of all children (named and anonymous).</dd>
+            <dt id="ae85cf4284139f31a60fd798306bafe13">
+              <span class="m-doc-wrap-bumper">auto <a href="#ae85cf4284139f31a60fd798306bafe13" class="m-doc-self">children</a>(</span><span class="m-doc-wrap">) const -&gt; std::vector&lt;<a href="classts_1_1Node.html" class="m-doc">Node</a>&gt;</span>
+            </dt>
+            <dd>List of all children (named and anonymous).</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#ae99fc0d66b70629f26b52767e32a2c78" class="m-doc">named_child</a>(</span><span class="m-doc-wrap">std::uint32_t index) const -&gt; std::optional&lt;<a href="classts_1_1Node.html" class="m-doc">Node</a>&gt;</span>
+            </dt>
+            <dd>The n-th <strong>named</strong> child (0 indexed).</dd>
+            <dt id="a27b03b4a200ead547e91daf4fcce279c">
+              <span class="m-doc-wrap-bumper">auto <a href="#a27b03b4a200ead547e91daf4fcce279c" class="m-doc-self">named_child_count</a>(</span><span class="m-doc-wrap">) const -&gt; std::uint32_t</span>
+            </dt>
+            <dd>The number of named children.</dd>
+            <dt id="ae6199dac797ec95c5d89d895cce68205">
+              <span class="m-doc-wrap-bumper">auto <a href="#ae6199dac797ec95c5d89d895cce68205" class="m-doc-self">named_children</a>(</span><span class="m-doc-wrap">) const -&gt; std::vector&lt;<a href="classts_1_1Node.html" class="m-doc">Node</a>&gt;</span>
+            </dt>
+            <dd>List of all named children.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a3d95c7bc3fc7fe063763dfb89562cd40" class="m-doc">next_sibling</a>(</span><span class="m-doc-wrap">) const -&gt; std::optional&lt;<a href="classts_1_1Node.html" class="m-doc">Node</a>&gt;</span>
+            </dt>
+            <dd>The node&#x27;s next sibling.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a86229e18d4fffb43df9cf7e5d5f0d9e8" class="m-doc">prev_sibling</a>(</span><span class="m-doc-wrap">) const -&gt; std::optional&lt;<a href="classts_1_1Node.html" class="m-doc">Node</a>&gt;</span>
+            </dt>
+            <dd>The node&#x27;s previous sibling.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#acdd18d4e06345e43c0b51e23fddc4645" class="m-doc">next_named_sibling</a>(</span><span class="m-doc-wrap">) const -&gt; std::optional&lt;<a href="classts_1_1Node.html" class="m-doc">Node</a>&gt;</span>
+            </dt>
+            <dd>The node&#x27;s next <em>named</em> sibling.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a19fc45b2e7ed54cc8e2f0781e93738cd" class="m-doc">prev_named_sibling</a>(</span><span class="m-doc-wrap">) const -&gt; std::optional&lt;<a href="classts_1_1Node.html" class="m-doc">Node</a>&gt;</span>
+            </dt>
+            <dd>The node&#x27;s previous named sibling.</dd>
+            <dt id="af9da7f35231ae22d9c254e9e0a2c56ae">
+              <span class="m-doc-wrap-bumper">auto <a href="#af9da7f35231ae22d9c254e9e0a2c56ae" class="m-doc-self">start_byte</a>(</span><span class="m-doc-wrap">) const -&gt; std::uint32_t</span>
+            </dt>
+            <dd>Start position as byte offset.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#afa280f2c9880a4ce321d38fe93598123" class="m-doc">end_byte</a>(</span><span class="m-doc-wrap">) const -&gt; std::uint32_t</span>
+            </dt>
+            <dd>End position as byte offset.</dd>
+            <dt id="ae03d4e6e17d87becbadbae8405c028a4">
+              <span class="m-doc-wrap-bumper">auto <a href="#ae03d4e6e17d87becbadbae8405c028a4" class="m-doc-self">start_point</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="structts_1_1Point.html" class="m-doc">Point</a></span>
+            </dt>
+            <dd>The start position as <a href="structts_1_1Point.html" class="m-doc">Point</a> (row and column).</dd>
+            <dt id="a9fdbce140c14f60274322b5708767fa0">
+              <span class="m-doc-wrap-bumper">auto <a href="#a9fdbce140c14f60274322b5708767fa0" class="m-doc-self">end_point</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="structts_1_1Point.html" class="m-doc">Point</a></span>
+            </dt>
+            <dd>The end position as <a href="structts_1_1Point.html" class="m-doc">Point</a> (row and column).</dd>
+            <dt id="a66eb95fae4108bd9cfa55eab119349a0">
+              <span class="m-doc-wrap-bumper">auto <a href="#a66eb95fae4108bd9cfa55eab119349a0" class="m-doc-self">start</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="structts_1_1Location.html" class="m-doc">Location</a></span>
+            </dt>
+            <dd>The start position as <a href="structts_1_1Location.html" class="m-doc">Location</a> (row, column and byte offset).</dd>
+            <dt id="a7ea76082c5de6f946846c40c37cf3c91">
+              <span class="m-doc-wrap-bumper">auto <a href="#a7ea76082c5de6f946846c40c37cf3c91" class="m-doc-self">end</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="structts_1_1Location.html" class="m-doc">Location</a></span>
+            </dt>
+            <dd>The end position as <a href="structts_1_1Location.html" class="m-doc">Location</a> (row, column and byte offset).</dd>
+            <dt id="ae7c86fe56b9386b57e64f49ffbec46da">
+              <span class="m-doc-wrap-bumper">auto <a href="#ae7c86fe56b9386b57e64f49ffbec46da" class="m-doc-self">range</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="structts_1_1Range.html" class="m-doc">Range</a></span>
+            </dt>
+            <dd>The <a href="structts_1_1Range.html" class="m-doc">Range</a> of the node (start and end <a href="structts_1_1Location.html" class="m-doc">Location</a>).</dd>
+            <dt id="a21dabbfa7df50496a660c1b5330426df">
+              <span class="m-doc-wrap-bumper">auto <a href="#a21dabbfa7df50496a660c1b5330426df" class="m-doc-self">text</a>(</span><span class="m-doc-wrap">) const -&gt; std::string</span>
+            </dt>
+            <dd>The substring of source code this node represents.</dd>
+            <dt id="a620f9b716eca1273969b0974d70e0d43">
+              <span class="m-doc-wrap-bumper">auto <a href="#a620f9b716eca1273969b0974d70e0d43" class="m-doc-self">as_s_expr</a>(</span><span class="m-doc-wrap">) const -&gt; std::string</span>
+            </dt>
+            <dd>A string representation of the syntax tree starting from the node represented as an s-expression.</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="a599ef0e9b132e09200eca61229d486c0"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"> ts::<wbr />Node::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a599ef0e9b132e09200eca61229d486c0" class="m-doc-self">Node</a>(</span><span class="m-doc-wrap">TSNode node,
+              const <a href="classts_1_1Tree.html" class="m-doc">Tree</a>&amp; tree)</span></span>
+            </h3>
+<p>Creates a new node from the given tree-sitter node and the tree.</p><p>Will throw <a href="classts_1_1NullNodeException.html" class="m-doc">NullNodeException</a> if the node is null.</p><aside class="m-note m-danger"><h4>Warning</h4><p>Should only be used internally.</p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a0a5a161029d531da4001a0baa1fd63ff"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"> ts::<wbr />Node::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a0a5a161029d531da4001a0baa1fd63ff" class="m-doc-self">Node</a>(</span><span class="m-doc-wrap"><a href="structts_1_1Node_1_1unsafe__t.html" class="m-doc">unsafe_<wbr />t</a>,
+              TSNode node,
+              const <a href="classts_1_1Tree.html" class="m-doc">Tree</a>&amp; tree) <span class="m-label m-success">noexcept</span></span></span>
+            </h3>
+<p>Unsafe constructor that does not check for null nodes.</p><p>Only call this if you know the node is not null.</p><aside class="m-note m-danger"><h4>Warning</h4><p>This might make other node methods segfault if the node was null.</p><p>This should only be used internally.</p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a0ae23a4f5622ab6b9615d5fd31c8da47"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">TSNode ts::<wbr />Node::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a0ae23a4f5622ab6b9615d5fd31c8da47" class="m-doc-self">raw</a>(</span><span class="m-doc-wrap">) const</span></span>
+            </h3>
+            <p>Returns the raw Tree-Sitter node.</p>
+<aside class="m-note m-danger"><h4>Warning</h4><p>Use with care. Only intended vor internal use in the wrapper types.</p><p>Don&#x27;t modify the return value by calling Tree-Sitter functions directly.</p></aside>
+          </div></section>
+          <section class="m-doc-details" id="ab3165e0e1b5390c8b904640a60050be9"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="namespacets.html#a51f4186042d79f66c64450dcedb18fd3" class="m-doc">TypeId</a> ts::<wbr />Node::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ab3165e0e1b5390c8b904640a60050be9" class="m-doc-self">type_id</a>(</span><span class="m-doc-wrap">) const</span></span>
+            </h3>
+            <p>The numeric TypeId of the node.</p>
+<p>In tree-sitter this is called <em>symbol</em>.</p>
+          </div></section>
+          <section class="m-doc-details" id="ac25a0ba63a5dd5f513de34258ef13120"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">bool ts::<wbr />Node::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ac25a0ba63a5dd5f513de34258ef13120" class="m-doc-self">is_missing</a>(</span><span class="m-doc-wrap">) const</span></span>
+            </h3>
+            <p>Check if the node is <em>missing</em>.</p>
+<p>Missing nodes are used to recover from some kinds of syntax errors.</p>
+          </div></section>
+          <section class="m-doc-details" id="aaae7bc0d99bbf42c28d796e5b80e4267"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">bool ts::<wbr />Node::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aaae7bc0d99bbf42c28d796e5b80e4267" class="m-doc-self">is_extra</a>(</span><span class="m-doc-wrap">) const</span></span>
+            </h3>
+            <p>Check if the node is <em>extra</em>.</p>
+<p>Extra nodes represent things like comments.</p>
+          </div></section>
+          <section class="m-doc-details" id="ac6dd1ffb092c80a1b074ddb6feb81390"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">std::optional&lt;<a href="classts_1_1Node.html" class="m-doc">Node</a>&gt; ts::<wbr />Node::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ac6dd1ffb092c80a1b074ddb6feb81390" class="m-doc-self">parent</a>(</span><span class="m-doc-wrap">) const</span></span>
+            </h3>
+            <p>The parent of the node.</p>
+<p>Returns <code>std::nullopt</code> when called with the root node of a tree.</p>
+          </div></section>
+          <section class="m-doc-details" id="a7a501b6fdb21497f56864788ab688882"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">std::optional&lt;<a href="classts_1_1Node.html" class="m-doc">Node</a>&gt; ts::<wbr />Node::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a7a501b6fdb21497f56864788ab688882" class="m-doc-self">child</a>(</span><span class="m-doc-wrap">std::uint32_t index) const</span></span>
+            </h3>
+            <p>The n-th child (0 indexed). Counts named and anonymous nodes.</p>
+<p>Returns <code>std::nullopt</code> if the child does not exist.</p>
+          </div></section>
+          <section class="m-doc-details" id="ae99fc0d66b70629f26b52767e32a2c78"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">std::optional&lt;<a href="classts_1_1Node.html" class="m-doc">Node</a>&gt; ts::<wbr />Node::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ae99fc0d66b70629f26b52767e32a2c78" class="m-doc-self">named_child</a>(</span><span class="m-doc-wrap">std::uint32_t index) const</span></span>
+            </h3>
+            <p>The n-th <strong>named</strong> child (0 indexed).</p>
+<p>This will not return anonymous nodes and the index only considers named nodes.</p><p>Returns <code>std::nullopt</code> if the child does not exist.</p>
+          </div></section>
+          <section class="m-doc-details" id="a3d95c7bc3fc7fe063763dfb89562cd40"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">std::optional&lt;<a href="classts_1_1Node.html" class="m-doc">Node</a>&gt; ts::<wbr />Node::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a3d95c7bc3fc7fe063763dfb89562cd40" class="m-doc-self">next_sibling</a>(</span><span class="m-doc-wrap">) const</span></span>
+            </h3>
+            <p>The node&#x27;s next sibling.</p>
+<p>This will also return anonymous nodes.</p><p>Returns <code>std::nullopt</code> if there are no more siblings.</p>
+          </div></section>
+          <section class="m-doc-details" id="a86229e18d4fffb43df9cf7e5d5f0d9e8"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">std::optional&lt;<a href="classts_1_1Node.html" class="m-doc">Node</a>&gt; ts::<wbr />Node::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a86229e18d4fffb43df9cf7e5d5f0d9e8" class="m-doc-self">prev_sibling</a>(</span><span class="m-doc-wrap">) const</span></span>
+            </h3>
+            <p>The node&#x27;s previous sibling.</p>
+<p>This will also return anonymous nodes.</p><p>Returns <code>std::nullopt</code> if this node is already the first sibling.</p>
+          </div></section>
+          <section class="m-doc-details" id="acdd18d4e06345e43c0b51e23fddc4645"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">std::optional&lt;<a href="classts_1_1Node.html" class="m-doc">Node</a>&gt; ts::<wbr />Node::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#acdd18d4e06345e43c0b51e23fddc4645" class="m-doc-self">next_named_sibling</a>(</span><span class="m-doc-wrap">) const</span></span>
+            </h3>
+            <p>The node&#x27;s next <em>named</em> sibling.</p>
+<p>This will not return anonymous nodes.</p><p>Returns <code>std::nullopt</code> if there are no more named siblings.</p>
+          </div></section>
+          <section class="m-doc-details" id="a19fc45b2e7ed54cc8e2f0781e93738cd"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">std::optional&lt;<a href="classts_1_1Node.html" class="m-doc">Node</a>&gt; ts::<wbr />Node::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a19fc45b2e7ed54cc8e2f0781e93738cd" class="m-doc-self">prev_named_sibling</a>(</span><span class="m-doc-wrap">) const</span></span>
+            </h3>
+            <p>The node&#x27;s previous named sibling.</p>
+<p>This will not return anonymous nodes.</p><p>Returns <code>std::nullopt</code> if this node is already the first named sibling.</p>
+          </div></section>
+          <section class="m-doc-details" id="afa280f2c9880a4ce321d38fe93598123"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">std::uint32_t ts::<wbr />Node::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#afa280f2c9880a4ce321d38fe93598123" class="m-doc-self">end_byte</a>(</span><span class="m-doc-wrap">) const</span></span>
+            </h3>
+            <p>End position as byte offset.</p>
+<p>Returns the position <strong>after</strong> the last character.</p>
+          </div></section>
+        </section>
+        <section>
+          <h2>Variable documentation</h2>
+          <section class="m-doc-details" id="a8fbd6764d2f3ba612e32dd2e350af537"><div>
+            <h3>
+              static <a href="structts_1_1Node_1_1unsafe__t.html" class="m-doc">unsafe_<wbr />t</a> ts::<wbr />Node::<wbr /><a href="#a8fbd6764d2f3ba612e32dd2e350af537" class="m-doc-self">unsafe</a> <span class="m-label m-primary">constexpr</span>
+            </h3>
+            <p>Type tag for the unsafe constructor.</p>
+<aside class="m-note m-danger"><h4>Warning</h4><p>Should only be used internally.</p></aside>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>TreeSitterWrapper C++ Wrapper for Tree-Sitter. Created with <a href="https://doxygen.org/">Doxygen</a> 1.8.17 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>
