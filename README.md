@@ -27,8 +27,8 @@ Parser parser{language};
 This library mostly just copies the api from Tree-Sitter but there are a few
 additional pieces of functionality that is not directly offered by Tree-Sitter:
 
-- `Tree` stores a copy of the parsed source code so you can retrieve the text of
-  a node (`Node::text`)
+- `Tree` stores a **copy** of the parsed source code so you can retrieve the
+  text of a node (`Node::text`)
 - `edit_tree` can apply multiple edits to the tree at once and will return
   adjusted ranges of the applied edit (because early edits might move code
   around and change the line/column number of later edits). Currently this is
@@ -36,9 +36,22 @@ additional pieces of functionality that is not directly offered by Tree-Sitter:
 
 ## Usage
 
+You need to link to the CMake target `TreeSitterWrapper`. This target also
+contains the needed Tree-Sitter headers to compile grammars(i.e.
+`#include <tree_sitter/parser.h>` and `#include <tree_sitter/api.h>` both work).
+
 ```cpp
+#include <tree_sitter/tree_sitter.hpp>
+
+// replace with your language of choise
 extern "C" const TSLanguage* tree_sitter_lua();
 const ts::Language LUA_LANGUAGE{tree_sitter_lua()};
+
+ts::Parser parse(LUA_LANGUAGE);
+ts::Tree tree = parser.parse_string("assert(1 + 1 = 2)");
+
+// query/walk/etc. the tree
+assert(!tree.root_node().has_error());
 ```
 
 ## TODOs
