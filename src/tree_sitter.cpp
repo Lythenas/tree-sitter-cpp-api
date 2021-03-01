@@ -1,4 +1,4 @@
-#include "ts/tree_sitter.hpp"
+#include "tree_sitter/tree_sitter.hpp"
 #include <algorithm>
 #include <cassert>
 #include <cstdio>

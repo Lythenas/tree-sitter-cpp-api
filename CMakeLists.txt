@@ -34,7 +34,6 @@ find_package(TreeSitter)
 # library
 add_subdirectory(src)
 
-add_library(TreeSitterWrapper::TreeSitter ALIAS TreeSitter)
 
 # tests
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
