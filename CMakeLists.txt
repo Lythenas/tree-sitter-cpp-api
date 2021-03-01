@@ -30,8 +30,6 @@ find_package(Plantuml)
 
 # dependencies
 find_package(TreeSitter)
-# grammar for testing
-find_package(TreeSitterLua)
 
 # library
 add_subdirectory(src)
@@ -52,8 +50,10 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
         set(COVERAGE ON)
     endif()
 
+    # grammar for testing
+    find_package(TreeSitterLua)
+
     add_subdirectory(tests)
-    # add_subdirectory(bench)
 
     # documentation
     if(DOXYGEN_FOUND)
