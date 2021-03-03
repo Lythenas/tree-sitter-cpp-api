@@ -12,3 +12,5 @@ target_link_libraries(${PROJECT_NAME}-tests
 if(COVERAGE)
     setup_target_for_coverage(${PROJECT_NAME}-tests-coverage ${PROJECT_NAME}-tests coverage)
 endif()
+
+add_subdirectory(docs)
