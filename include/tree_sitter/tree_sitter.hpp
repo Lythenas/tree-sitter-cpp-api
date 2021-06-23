@@ -1070,11 +1070,6 @@ public:
 void visit_children(Cursor& cursor, const std::function<void(ts::Node)>& fn);
 
 /**
- * Visit all siblings of the cursor and call the given function.
- */
-void visit_siblings(Cursor& cursor, const std::function<void(ts::Node)>& fn);
-
-/**
  * Visits a tree using a cursor.
  */
 template <typename Fn> static void visit_tree(const ts::Tree& tree, Fn fn) {

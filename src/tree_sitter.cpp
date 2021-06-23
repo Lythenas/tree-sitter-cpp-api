@@ -499,19 +499,18 @@ void Tree::print_dot_graph(std::string_view file) const {
 }
 
 // helpers to implement visit_tree
-void visit_children(Cursor& cursor, const std::function<void(ts::Node)>& fn) {
-    if (cursor.goto_first_child()) {
-        fn(cursor.current_node());
-    }
-    visit_siblings(cursor, fn);
-};
-
-void visit_siblings(Cursor& cursor, const std::function<void(ts::Node)>& fn) {
+static void _visit_siblings(Cursor& cursor, const std::function<void(ts::Node)>& fn) {
     while (cursor.goto_next_sibling()) {
         fn(cursor.current_node());
         visit_children(cursor, fn);
     }
     assert(cursor.goto_parent());
+};
+void visit_children(Cursor& cursor, const std::function<void(ts::Node)>& fn) {
+    if (cursor.goto_first_child()) {
+        fn(cursor.current_node());
+        _visit_siblings(cursor, fn);
+    }
 };
 
 // class Cursor
